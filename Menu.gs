@@ -22,13 +22,13 @@ function onOpen() {
 
 
 function checkIn_() {
-  var properties = PropertiesService.getDocumentProperties();
+  var properties = PropertiesService.getDocumentProperties()
   Timesheet.checkIn(properties, null, properties, LockService.getDocumentLock())
   
 } // checkIn_()
 
 function checkOut_() {
-  var properties = PropertiesService.getDocumentProperties();
+  var properties = PropertiesService.getDocumentProperties()
   Timesheet.checkOut(properties, null, properties, LockService.getDocumentLock())
   
 } // checkOut_()
