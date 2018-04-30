@@ -1,5 +1,12 @@
 // 34567890123456789012345678901234567890123456789012345678901234567890123456789
 
+// Configuration
+// =============
+
+var SCRIPT_NAME = "Timesheet Bound Script"
+var SCRIPT_VERSION = "v1.0"
+
+
 // Menu.gs
 // ========
 //
