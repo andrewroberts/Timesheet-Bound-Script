@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class = "sidebar">
+     <p>If you click "Check In", it will run the check in, disable checkin button and enable checkout. 
+     <br>
+     <input class="action" id="checkin" type="button" value="Check In" onmouseup="checkingIn()" >
+     <input class="action" id="checkout" type="button" value="Check Out" onmouseup="checkingOut()"  >
+    </div>
+     
+     <script>
+
+     /*Run the getStatus to set the enable/disable property of the Check In and Check Out buttons*/
+     var checkedIn = google.script.run.withSuccessHandler(setButtonStatus).getStatus();
+    
+     function setButtonStatus(checkedIn) {
+       if (checkedIn) {
+       
+         // If Checked In, disable the check in button, and enable the check out button
+         $("#checkin").prop('disabled',true);
+         $("#checkout").prop('disabled',false);
+         
+       } else {
+         
+         // If Checked Out, disable the check out button, and enable the check in button
+         $("#checkin").prop('disabled',false);
+         $("#checkout").prop('disabled',true)
+         
+       }
+     }
+     
+     function checkingIn(){
+     
+       //On clicking the button it is disabled. 
+       $("#checkin").prop('disabled',true);
+        
+        //This functions is called after the serverside checkIn script finishes.
+        function checkOutEnable(){
+          $("#checkout").prop('disabled',false);
+        };
+        
+        /* Runs the serverside script checkIn 
+        * Then calls the "checkOutEnable" function.
+        */
+        google.script.run.withSuccessHandler(checkOutEnable).checkIn();
+     };
+     
+     function checkingOut(){
+     
+       //On clicking the button it is disabled. 
+       $("#checkout").prop('disabled',true);
+        
+       //This functions is called after the serverside checkOut script finishes.
+       function checkInEnable(){
+         $("#checkin").prop('disabled',false);
+       };
+        
+       /* Runs the serverside script checkOut 
+       * Then calls the "checkInEnable" function.
+       */
+       google.script.run.withSuccessHandler(checkInEnable).checkOut();
+     };
+     </script>
+    
+  </body>
+</html>
