@@ -10,9 +10,6 @@ function onOpen(e) {
   var menu = SpreadsheetApp
     .getUi()
     .createMenu('[ Timesheet ]')
-    .addItem('Check In',  'checkIn')
-    .addItem('Check Out', 'checkOut')
-
     
   if (e.authMode === ScriptApp.AuthMode.NONE) {
   
@@ -21,8 +18,6 @@ function onOpen(e) {
   } else { // LIMITED or FULL
   
     var triggerOpenId = PropertiesService.getDocumentProperties().getProperty('triggerOpenId')
-    
-    Logger.log(triggerOpenId)
         
     if (triggerOpenId === null) {
   
@@ -51,12 +46,11 @@ function onInstall(e){
     properties.deleteProperty('triggerOpenId')
     
   }
-
     
   onOpen(e);
 };
 
-function getStatus_() {
+function getStatus() {
   var properties = PropertiesService.getDocumentProperties()
   var status = PROPERTIES.getProperty("TIMESHEET_STATUS")
   
