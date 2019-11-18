@@ -1,3 +1,6 @@
+// JSHint - 30Oct2019
+/* jshint asi: true */
+
 var SCRIPT_NAME = 'Timesheet Bound Script'
 var SCRIPT_VERSION = 'v1.2'
 
@@ -7,9 +10,10 @@ var LOCK = LockService.getDocumentLock()
 // Create a menu item to access the sidebar.
 function onOpen(e) {
 
+  var menu = ''
   if (e.authMode === ScriptApp.AuthMode.NONE) {
    
-         var menu = SpreadsheetApp
+      menu = SpreadsheetApp
         .getUi()
         .createMenu('[ Timesheet ]')
         .addItem('Start', 'initialize_') 
@@ -21,7 +25,7 @@ function onOpen(e) {
         
     if (triggerOpenId === null) {
   
-      var menu = SpreadsheetApp
+      menu = SpreadsheetApp
         .getUi()
         .createMenu('[ Timesheet ]')
         .addItem('Start', 'initialize_') 
@@ -32,7 +36,7 @@ function onOpen(e) {
       var html = HtmlService
       .createHtmlOutputFromFile("index")
       .setTitle("Check In/Check Out");
-      SpreadsheetApp.getUi().showSidebar(html);
+      SpreadsheetApp.getUi().showSidebar(html)
 
     }    
   }
@@ -48,8 +52,8 @@ function onInstall(e){
     
   }
     
-  onOpen(e);
-};
+  onOpen(e)
+}
 
 function getStatus() {
   var properties = PropertiesService.getDocumentProperties()
