@@ -7,13 +7,13 @@ var LOCK = LockService.getDocumentLock()
 // Create a menu item to access the sidebar.
 function onOpen(e) {
 
-  var menu = SpreadsheetApp
-    .getUi()
-    .createMenu('[ Timesheet ]')
-    
   if (e.authMode === ScriptApp.AuthMode.NONE) {
-  
-    menu.addItem('Start', 'initialize_')   
+   
+         var menu = SpreadsheetApp
+        .getUi()
+        .createMenu('[ Timesheet ]')
+        .addItem('Start', 'initialize_') 
+        .addToUi()
 
   } else { // LIMITED or FULL
   
@@ -21,7 +21,11 @@ function onOpen(e) {
         
     if (triggerOpenId === null) {
   
-      menu.addItem('Start', 'initialize_')   
+      var menu = SpreadsheetApp
+        .getUi()
+        .createMenu('[ Timesheet ]')
+        .addItem('Start', 'initialize_') 
+        .addToUi()
   
     } else {
     
@@ -30,11 +34,8 @@ function onOpen(e) {
       .setTitle("Check In/Check Out");
       SpreadsheetApp.getUi().showSidebar(html);
 
-    }
-    
-    menu.addToUi()
-
-}
+    }    
+  }
 }
 
 
