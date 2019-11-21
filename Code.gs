@@ -9,7 +9,7 @@ var LOCK = LockService.getDocumentLock()
 
 // Create a menu item to access the sidebar.
 function onOpen() {Timesheet.onOpen(PROPERTIES)}
-function initialize() {Timesheet.initialize()}
+function initialize() {Timesheet.initialize(PROPERTIES)}
 
 function checkIn()  {Timesheet.checkIn (PROPERTIES)}
 function checkOut() {Timesheet.checkOut(PROPERTIES)}
