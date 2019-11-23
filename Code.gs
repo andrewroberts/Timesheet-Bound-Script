@@ -1,19 +1,22 @@
+// JSHint - 30Oct2019
+/* jshint asi: true */
+
 var SCRIPT_NAME = 'Timesheet Bound Script'
-var SCRIPT_VERSION = 'v1.1'
+var SCRIPT_VERSION = 'v1.2'
 
 var PROPERTIES = PropertiesService.getDocumentProperties()
 var LOCK = LockService.getDocumentLock()
 
-function onOpen() {
+// Create a menu item to access the sidebar.
+function onOpen() {Timesheet.onOpen(PROPERTIES)}
+function initialize() {Timesheet.initialize(PROPERTIES)}
 
-  SpreadsheetApp
-    .getUi()
-    .createMenu('[ Timesheet ]')
-    .addItem('Check In',  'checkIn')
-    .addItem('Check Out', 'checkOut')
-    .addToUi()
-    
-} // onOpen()
+function checkIn()  {Timesheet.checkIn (PROPERTIES)}
+function checkOut() {Timesheet.checkOut(PROPERTIES)}
 
-function checkIn()  {Timesheet.checkIn (PROPERTIES, null, PROPERTIES, LOCK)}
-function checkOut() {Timesheet.checkOut(PROPERTIES, null, PROPERTIES, LOCK)}
+// Client side 
+function isCheckedIn() {return Timesheet.isCheckedIn(PROPERTIES)}
+
+function test() {
+  Logger.log(PropertiesService.getDocumentProperties().getProperties())
+}

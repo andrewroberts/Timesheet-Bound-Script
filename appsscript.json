@@ -3,8 +3,8 @@
   "dependencies": {
     "libraries": [{
       "userSymbol": "Timesheet",
-      "libraryId": "1OBgft9TNDAkuZx9H-fueqcTjnit4vejmn9feMidalFOtQjuW0lINXAzJ",
-      "version": "4",
+      "libraryId": "1WvBfsLeyE0z-s1k_3LvtFD7DM0EvIofw22whpFS0unA5F5Z66hIkaCgR",
+      "version": "1",
       "developmentMode": true
     }]
   },
