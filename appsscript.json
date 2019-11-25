@@ -2,7 +2,7 @@
   "timeZone": "Europe/London",
   "dependencies": {
     "libraries": [{
-      "userSymbol": "TimesheetPRODUCTION",
+      "userSymbol": "Timesheet",
       "libraryId": "1OBgft9TNDAkuZx9H-fueqcTjnit4vejmn9feMidalFOtQjuW0lINXAzJ",
       "version": "5",
       "developmentMode": true
